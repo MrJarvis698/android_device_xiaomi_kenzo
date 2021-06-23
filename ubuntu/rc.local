@@ -1,0 +1,41 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+cp /system/etc/wifi/WCNSS_qcom_cfg.ini /data/misc/wifi/WCNSS_qcom_cfg.ini
+
+export LD_LIBRARY_PATH=/vendor/lib64:/system/lib64:/vendor/lib:/system/lib
+
+echo initilizing
+n=0
+until [ "$n" -ge 5 ]
+do
+   sudo echo 1 > /dev/wcnss_wlan && break
+   echo sta > /sys/module/wlan/parameters/fwpath && break  # substitute your co$
+   n=$((n+1)) 
+   sleep 2
+   echo round
+done
+
+sudo echo 1 > /dev/wcnss_wlan
+
+sleep 4
+
+
+echo enabling wifi
+
+echo 1 > /dev/wcnss_wlan
+echo sta > /sys/module/wlan/parameters/fwpath
+
+echo enabled wifi
+exit 0
+

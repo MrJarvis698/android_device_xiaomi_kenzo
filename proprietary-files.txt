@@ -548,11 +548,6 @@ vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 
 # Radio
--app/datastatusnotification/datastatusnotification.apk
--app/fastdormancy/fastdormancy.apk
--app/shutdownlistener/shutdownlistener.apk
--framework/qcnvitems.jar
--framework/qcrilhook.jar
 bin/netmgrd
 bin/qmuxd
 bin/radish
@@ -560,7 +555,6 @@ bin/rmt_storage
 bin/tftp_server
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/Diag.cfg
 vendor/lib64/libconfigdb.so
@@ -573,7 +567,6 @@ vendor/lib/libmdmdetect.so
 vendor/qcril.db
 
 # Time services
--app/TimeService/TimeService.apk
 bin/time_daemon
 vendor/lib64/libTimeService.so
 -vendor/lib64/libtime_genoff.so

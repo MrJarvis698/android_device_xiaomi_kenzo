@@ -1,0 +1,22 @@
+service servicemanager /system/bin/servicemanager
+    class core
+    user system
+    group system readproc
+    critical
+    onrestart restart healthd
+    onrestart restart zygote
+    onrestart restart audioserver
+    onrestart restart media
+    onrestart restart surfaceflinger
+    onrestart restart inputflinger
+    onrestart restart drm
+    onrestart restart cameraserver
+    writepid /dev/cpuset/system-background/tasks
+
+    # Following is added for the port
+    onrestart restart miniaf
+
+service miniaf /system/bin/miniafservice
+    class main
+    user system
+    group audio

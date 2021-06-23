@@ -25,6 +25,20 @@ TARGET_OTA_ASSERT_DEVICE := kate,kenzo
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
+
+
+#hash these two out if something goes wrongggg---------------------------
+# RIL
+#TARGET_RIL_VARIANT := caf
+
+
+# Sensor
+#USE_SENSOR_MULTI_HAL := true
+#-----------------------------------------------------------------------------------
+
+
+
+
 # Filesystem
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 26838785024 # 26838801408 - 16384
@@ -37,6 +51,8 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+
+BOARD_KERNEL_CMDLINE += console=tty0 selinux=0 apparmor=1 security=apparmor 
 
 # inherit from the proprietary version
 -include vendor/xiaomi/kenzo/BoardConfigVendor.mk
